@@ -1,84 +1,135 @@
-# Factor-Forge AI: AI-Driven Architectural Blueprint Generator
+# Factor-Forge AI | Architectural Blueprint Generator
 
-## 1. Descripcion del Proyecto
-Factor-Forge AI es un microservicio especializado en la transformacion de conceptos de software en documentos de arquitectura tecnica detallados. El sistema utiliza modelos de lenguaje avanzados (DeepSeek y Geminis) para analizar una idea de negocio y generar automaticamente un archivo en formato Markdown que detalla la implementacion de los Doce Factores (12-Factor App) especifica para dicho contexto.
+<div align="center">
+  <img width="45%" alt="Architecture Blueprint" src="https://github.com/user-attachments/assets/948259f4-189a-4e20-94d5-866763690620" />
+  <img width="45%" alt="AI Documentation" src="https://github.com/user-attachments/assets/574e9f3b-558c-4a37-b6f1-678c430e1591" />
+</div>
 
-Este proyecto ha sido desarrollado como parte del programa de Ingenieria en Desarrollo Comercial de Software en Jala University, con el objetivo de demostrar la integracion de inteligencia artificial en flujos de trabajo de arquitectura cloud-native.
+<div align="center">
+  <img src="https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Express-000000?logo=express&logoColor=white" alt="Express" />
+  <img src="https://img.shields.io/badge/DeepSeek_AI-007BFF?logo=openai&logoColor=white" alt="DeepSeek" />
+  <img src="https://img.shields.io/badge/Hexagonal_Architecture-FF6600?logo=architecture&logoColor=white" alt="Hexagonal" />
+  <img src="https://img.shields.io/badge/12--Factor_App-222222?logo=docker&logoColor=white" alt="12 Factor" />
+  <img src="https://img.shields.io/badge/Jest-C21325?logo=jest&logoColor=white" alt="Jest" />
+</div>
 
-## 2. Detalles del Autor
-* **Desarrollador:** Ever
-* **Institucion:** Jala University
-* **Fecha:** Marzo, 2026
-* **Materia:** Arquitectura de Software / Metodologia de los Doce Factores
+A high-performance engineering microservice designed to automate the creation of architectural documentation. By leveraging **DeepSeek-V3** large language models, Factor-Forge AI transforms conceptual ideas into rigorous, 12-Factor compliant Markdown reports.
 
-## 3. Arquitectura del Sistema
-El proyecto implementa una Arquitectura Hexagonal (Ports and Adapters) para desacoplar la logica de negocio de las dependencias externas:
+## Overview
 
-* **Dominio (Domain):** Contiene las entidades de negocio y las interfaces de los repositorios. Es el nucleo del sistema y no tiene dependencias externas.
-* **Aplicacion (Application):** Orquesta los casos de uso, como la generacion del blueprint, comunicandose entre el dominio y la infraestructura.
-* **Infraestructura (Infrastructure):** Contiene las implementaciones concretas, como el controlador de Express, la configuracion de variables de entorno y el cliente de comunicacion con el API de DeepSeek.
+This project is a sophisticated backend implementation that bridges the gap between conceptual software design and cloud-native standards. It is engineered following **Hexagonal Architecture** (Ports and Adapters) to ensure complete decoupling between business logic and external infrastructure like AI providers or web frameworks.
 
-## 4. Tecnologias Utilizadas
-* **Runtime:** Node.js (v20+)
-* **Framework Web:** Express.js
-* **IA Model:** DeepSeek-V3 / DeepSeek-R1 (via API)
-* **Gestion de Variables:** Dotenv
-* **Control de Versiones:** Git
+The system enforces a strict separation of concerns, proving that even small microservices can achieve enterprise-grade scalability and maintainability.
 
-## 5. Endpoints de la API
+## Key Features
 
-### Health Check
-* **Metodo:** GET
-* **Ruta:** `/health`
-* **Descripcion:** Verifica el estado de operacion del microservicio y la conectividad con el proveedor de IA.
+- **AI-Powered Blueprinting**: Intelligent analysis of software ideas to generate specific recommendations for each of the 12 factors.
+- **Hexagonal Core**: Pure domain logic isolated from external technical details, facilitating testing and provider swapping (e.g., Gemini to DeepSeek).
+- **Cloud-Native DNA**: Native implementation of 8+ factors including Stateless Processes, Port Binding, and Graceful Shutdowns.
+- **Zero-Emoji Professionalism**: Documentation output optimized for high-level engineering environments.
+- **Built-in Observability**: Structured JSON logging via Pino for real-time event streaming and monitoring.
 
-### Generar Blueprint
-* **Metodo:** POST
-* **Ruta:** `/v1/blueprint`
-* **Cuerpo de la peticion (JSON):**
-    ```json
-    {
-      "idea": "Descripcion detallada del sistema de software",
-      "context": "Opcional: Entorno de despliegue o restricciones tecnicas"
-    }
-    ```
-* **Respuesta:** Documento Markdown puro con recomendaciones de arquitectura 12-factor.
+## Technology Stack
 
-## 6. Instrucciones de Ejecucion
+### Core Engine
+- **Runtime**: Node.js (v20+ / v22 LTS)
+- **Framework**: Express.js (High-performance routing)
+- **Intelligence**: DeepSeek AI (Advanced LLM Inference)
 
-### Requisitos Previos
-1. Disponer de una clave de API valida de DeepSeek.
-2. Tener instalado Node.js y npm en el sistema.
+### Engineering & DevOps
+- **Architecture**: Hexagonal (Domain / Application / Infrastructure)
+- **Monitoring**: Pino (Structured Logging)
+- **Documentation**: Swagger / OpenAPI 3.0
+- **Environment**: Dotenv (Factor III compliance)
 
-### Instalacion
-1. Clonar el repositorio:
+http://googleusercontent.com/image_content/185
+
+
+
+## System Architecture
+
+The repository enforces a strict hierarchical separation to protect the domain:
+
+- **`src/domain/`**: Pure business rules and entities. No dependencies on external libraries.
+- **`src/application/`**: Use cases and orchestration logic. It acts as a bridge between the core and the world.
+- **`src/infrastructure/`**: Technical implementation details. Hosts the DeepSeek client, Express controllers, and configuration layers.
+
+## 12-Factor App Compliance Matrix
+
+| Factor | Evidence | Engineering Commentary |
+|---------|------------|------|
+| **I: Codebase** | Git + .gitignore | Single codebase tracked in revision control for all deployments. |
+| **II: Dependencies** | `package.json` | Explicitly declared and isolated dependencies. No reliance on system-wide packages. |
+| **III: Config** | `env.js` + `.env` | Strict separation of config from code. Injected via environment variables. |
+| **VI: Processes** | Stateless Controllers | Zero-persistence architecture. Each request is independent and idempotent. |
+| **VII: Port binding** | Autonomous Server | Self-contained HTTP services. No dependency on external web servers. |
+| **IX: Disposability** | Graceful Shutdown | Fast startup and clean shutdown via SIGTERM/SIGINT handlers. |
+| **XI: Logs** | Pino Stdout | Logs treated as event streams. Native structured logging for cloud-native sinks. |
+
+## Repository Structure
+
+```text
+.
+├── src/
+│   ├── domain/                # Entities and Repository Interfaces
+│   ├── application/           # Use cases (GenerateBlueprint)
+│   └── infrastructure/        # Controllers, AI Clients, Routes, Config
+├── tests/                     # Integration and Unit testing suite
+├── index.js                   # Entry point with Graceful Shutdown logic
+├── .env.example               # Configuration template
+├── .gitignore                 # Dependency and secret isolation
+└── README.md                  # Project documentation
+```
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) 20+
+- [npm](https://www.npmjs.com/) or [pnpm](https://pnpm.io/)
+- DeepSeek API Key
+
+### Local Development
+
+1. **Clone and Install**
    ```bash
-   git clone <url-del-repositorio>
-   ```
-2. Instalar dependencias:
-   ```bash
+   git clone <repository-url>
+   cd factor-forge-api
    npm install
    ```
 
-### Configuracion de Entorno
-Crear un archivo `.env` en la raiz del proyecto con las siguientes variables:
-```env
-PORT=3000
-DEEPSEEK_API_KEY=tu_clave_aqui
-NODE_ENV=development
+2. **Environment Setup**
+   ```bash
+   cp .env.example .env
+   # Add your DEEPSEEK_API_KEY to .env
+   ```
+
+3. **Execution**
+   ```bash
+   # Development with native Watch Mode
+   npm run dev
+
+   # Production Build
+   npm start
+   ```
+
+## API Endpoints
+
+### Health Monitoring
+```bash
+curl -X GET http://localhost:3000/health -i
 ```
 
-### Ejecucion
-Para iniciar el servidor en modo de desarrollo:
+### AI Blueprint Generation
 ```bash
-npm run dev
-```
-Para iniciar el servidor en produccion:
-```bash
-npm start
+curl -X POST http://localhost:3000/v1/blueprint \
+     -H "Content-Type: application/json" \
+     -d '{"idea": "Real-time streaming platform for university lectures"}'
 ```
 
-## 7. Alineacion con los Doce Factores
-* **Factor III (Configuracion):** Toda la configuracion sensible se inyecta via variables de entorno.
-* **Factor VI (Procesos):** El servicio es totalmente stateless; no almacena informacion en el sistema de archivos local.
-* **Factor XI (Logs):** Los eventos de ejecucion se envian a stdout como flujos de datos continuos.
+---
+
+**Developed by**: Ever | Jala University  
+**Project**: Factor-Forge AI  
+**Year**: 2026 | *Construye hoy lo que mañana recordarás.*
