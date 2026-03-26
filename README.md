@@ -43,9 +43,6 @@ The system enforces a strict separation of concerns, proving that even small mic
 - **Documentation**: Swagger / OpenAPI 3.0
 - **Environment**: Dotenv (Factor III compliance)
 
-http://googleusercontent.com/image_content/185
-
-
 
 ## System Architecture
 
@@ -94,7 +91,7 @@ The repository enforces a strict hierarchical separation to protect the domain:
 
 1. **Clone and Install**
    ```bash
-   git clone <repository-url>
+   git clone git@github.com:MamaniVicenteEver/factor-forge-api.git
    cd factor-forge-api
    npm install
    ```
