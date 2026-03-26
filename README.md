@@ -1,8 +1,8 @@
 # Factor-Forge AI | Architectural Blueprint Generator
 
 <div align="center">
-  <img width="45%" alt="Architecture Blueprint" src="https://github.com/user-attachments/assets/948259f4-189a-4e20-94d5-866763690620" />
-  <img width="45%" alt="AI Documentation" src="https://github.com/user-attachments/assets/574e9f3b-558c-4a37-b6f1-678c430e1591" />
+  <img width="45%" alt="Architecture Blueprint" src="https://github.com/user-attachments/assets/1c58dc1d-a306-4bb0-97ef-f7f2076ffafe" />
+  <img width="45%" alt="AI Documentation" src="https://github.com/user-attachments/assets/1f163793-dadd-485a-a984-914d738ecca6" />
 </div>
 
 <div align="center">
